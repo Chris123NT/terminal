@@ -1298,7 +1298,7 @@ safe_void_coroutine AppHost::_WindowInitializedHandler(const winrt::Windows::Fou
         // change (microsoft-ui-xaml#6414). Bounce the foreground off a
         // throwaway window once so the acrylic composes on the first frame.
         // Skip it for autoHideWindow: the deactivation would dismiss the window.
-        const auto& globals = _appLogic.Settings().GlobalSettings();
+        const auto& globals = _appLogic.Settings().WindowSettingsDefaults();
         wil::unique_hwnd helper; // stays alive until we've taken the foreground back below
         if (globals.UseAcrylicInTabRow() && !globals.AutoHideWindow())
         {
